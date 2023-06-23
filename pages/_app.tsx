@@ -1,9 +1,33 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { MantineProvider } from '@mantine/core'
+import { HeaderResponsive } from '@/components/Header'
 
 export default function App(props: AppProps) {
     const { Component, pageProps } = props
+    type links = {
+        link: string,
+        label: string
+    }[]
+
+    const links: links = [
+        {
+            label: 'Home',
+            link: '/',
+        },
+        {
+            label: 'Join',
+            link: '/join',
+        },
+        {
+            label: 'Create',
+            link: '/create',
+        },
+        {
+            label: 'Chats',
+            link: '/chats',
+        },
+    ]
 
     return (
         <>
@@ -16,9 +40,10 @@ export default function App(props: AppProps) {
                 withGlobalStyles
                 withNormalizeCSS
                 theme={{
-                    colorScheme: 'light',
+                    colorScheme: 'dark',
                 }}
             >
+                <HeaderResponsive links={links} />
                 <Component {...pageProps} />
             </MantineProvider>
         </>
