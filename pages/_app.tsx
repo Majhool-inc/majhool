@@ -71,7 +71,9 @@ export default function App(props: AppProps) {
                 }}
             >
                 <HeaderResponsive links={links} />
-                <Component {...pageProps} />
+                <main style={{minHeight: '100vh'}}>
+                    <Component {...pageProps} />
+                </main>
                 <Footer socialMedias={socialMedias} />
             </MantineProvider>
         </>
